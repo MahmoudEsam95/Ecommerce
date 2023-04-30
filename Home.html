@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Real Estate Website</title>
+  <script type="text/javascript">
+  var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+  (function(){
+  var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+  s1.async=true;
+  s1.src='https://embed.tawk.to/643b23534247f20fefebdba9/1gu3g3vtb';
+  s1.charset='UTF-8';
+  s1.setAttribute('crossorigin','*');
+  s0.parentNode.insertBefore(s1,s0);
+  })();
+  </script>
+  <!--End of Tawk.to Script-->
+    <script src="live.js"></script>
+    <script src="live.css"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="Home.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/6afa9bde2e.js" crossorigin="anonymous"></script>
+
+
+</head>
+
+<body class="bg-light">
+  <nav>
+ 
+    <div class="logo" >
+      <img src="logo.png" alt="Logo" style="height: 160px; width: 190px;">
+    </div>
+
+    <ul class="nav-links">
+      <li><a href="http://127.0.0.1:5501/Account.html">Account</a></li>
+      <li><a href="http://127.0.0.1:5501/about.html">About Us</a></li>
+      <li><a href="http://127.0.0.1:5501/contact.html">Contact Us</a></li>
+    </ul>
+    <!-- drop down menu for categories -->
+   
+
+<!-- add real Estate -->
+    <div class="form-wrapper">
+      <div class="gameform">
+        <h1>Add your Real Estate</h1>
+          <div class="group">
+            <label ><b>Name</b></label>
+            <input type="text" placeholder="Enter Name" id="name" required>
+          </div>
+          <div class="group">
+            <label ><b>Price</b></label>
+            <input type="number" placeholder="Enter Price" id="price" required>
+          </div>
+          <div class="group">
+            <label ><b>Picture</b></label>
+            <input type="text" placeholder="Enter Url" id="picture" required>
+          </div>
+          <div class="group">
+            <label ><b>Category</b></label>
+            <input type="text" placeholder="Enter Category" id="categories" required>
+          </div>
+          <div class="action">
+              <button type="button" id="save" class="btn btn-primary" onclick="addRealEstate()">Add home</button>
+              <button type="button" class="btn btn-danger" onclick="cancel()">Done</button>
+          </div>
+      </div>
+    
+    </div>
+    <button type="button" class="btn btn-success" style="background-color: #004365;" onclick="ShowForm()"> Add Real Estate </button>
+
+
+
+ 
+
+
+    <!-- ----------------------------- -->
+
+    <i class="fa-solid fa-bag-shopping" id="cart-icon" style="color: #004365;"></i>
+    <i class="fa-solid fa-heart" id="wish-icon" style="color: #004365;"></i>
+
+    <div class="burger">
+      <div class="line1"></div>
+      <div class="line2"></div>
+      <div class="line3"></div>
+    </div>
+  </nav>
+  <section class="hero">
+    <div class="hero-image">
+     <!--                                       here                 -->
+    </div>
+    <div class="hero-content" >
+      <h1 style="color:#fff ;">Find Your Dream Home Today</h1>
+      
+             
+    <!-- search -->
+        <input  type="text" id="txt_search" placeholder="Search by Name">
+        <input style="background-color: #004365 ; color: #fff;" type="button" id="search_btn" value="Search" onclick="search()">
+    
+    
+
+        <!-- <select name="Category" id="category" onchange="changeCategory(this)">
+        <option value="all">All Categories</option>
+        <option value="old">Old style homes</option>
+        <option value="new">Modern style homes</option>
+        <option value="palace">Palaces</option>
+      </select> -->
+      <select  class="form-select" aria-label="Default select example" style=" width: 210px; padding-left: 20px;"  name="Category" 
+        id="category" onchange="changeCategory(this)" >
+        <option  selected> Select Menu</option>
+        <option value="all">All Categories</option>
+        <option value="old">Old style homes</option>
+        <option value="new">Modern style homes</option>
+        <option value="palace">Palaces</option>
+      </select>
+
+
+
+        <form class="search-bar" action="#">
+    
+     <br><br><br><br><br>
+
+      </form>
+      
+    </div>
+  </section>
+
+  <div class="container bg-light">
+<!--here  في الاول                         -->
+
+
+
+
+
+
+    <!-- product page -->
+    <div id="build" class="row">
+
+
+    </div>
+
+    <!-- cart -->
+    <div class="cart">
+      <h2 class="cart-title">Your Cart</h2>
+      <!-- Content -->
+      <div class="cart-content" id="cart_content">
+
+        
+
+      </div>
+      <!-- total                discount code start from here                  -->
+       <form >
+        
+      <label for="discount-code-input">Enter your discount code:</label>
+      <input type="text" id="discount-code-input" name="discount-code-input" />
+      <button type="button" onclick="applyDiscount()">Apply Discount</button>
+
+ </form>
+
+
+
+
+<script>
+
+function applyDiscount() {
+  var showItem = JSON.parse(localStorage.getItem("cart"));
+
+  let DISCOUNTCODES = ["000", "111", "222"];
+  let discount = document.getElementById("discount-code-input");
+  let totalPriceDiv = document.getElementById("total_price");
+  let total = 0;
+  for (let item of showItem) total += item.price * item.count;
+
+  console.log(discount.value);
+  let result = DISCOUNTCODES.filter(
+    (code) => code.toLowerCase() == discount.value.toLowerCase()
+  );
+
+  console.log(result);
+  if (result.length > 0) {
+    let totalDiscount = total * 0.01;
+    total = total - totalDiscount;
+    console.log(total);
+    totalPriceDiv.innerText = `${total} M$`;
+  } else alert("wrong code");
+}
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+ <!--                                                                      End here-->
+   
+      <div class="total" id="total_price">
+        
+      </div>
+      <!-- Buy Button -->
+      <button type="button" class="btn-buy" onclick="removeLocalStorage()">Deal</button>
+      <!-- Cart close -->
+      <i class="fa-solid fa-x" id="close-cart"></i>
+
+    </div>
+
+    <!-- wish list -->
+    <div class="wish">
+      <h2 class="wish-title">wish list</h2>
+      <!-- Content -->
+      <div class="wish-content" id="wish_content">
+
+        
+
+      </div>
+      <!-- total -->
+      <!-- <div class="total" id="total_price"> -->
+        
+      <!-- </div> -->
+      <!-- Buy Button -->
+      <button type="button" class="btn-buy" onclick="removeWishList()">Clesr List</button> 
+      <!-- Cart close -->
+      <i class="fa-solid fa-x" id="close-wish"></i>
+
+    </div>
+
+<!-- add product -->
+
+
+    <!--  -->
+
+    <a href="#" class="cta-button">Schedule a Viewing</a>
+  </div>
+
+
+<!--  -->
+  <div class="property-map">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.984464128049!2d-73.9855696848333!3d40.7484409793305!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259f26d7849e9%3A0x4e1ba4a4c4a0c6aa!2sThe%20Empire%20State%20Building!5e0!3m2!1sen!2sus!4v1617850500779!5m2!1sen!2sus"
+      width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+  </div>
+  </section>
+  </div>
+  <br><br><br><br>
+   <footer class="bg-light text-center text-white">
+  <!-- Grid container -->
+  <div class="container p-4 pb-0">
+    <!-- Section: Social media -->
+    <section class="mb-4">
+      <!-- Facebook -->
+      <a
+        class="btn text-white btn-floating m-1"
+        style="background-color: #3b5998;"
+        href="https://www.facebook.com/aqarmapcom?mibextid=ZbWKwL"
+        role="button"
+        ><i class="fab fa-facebook-f"></i
+      ></a>
+
+      <!-- Twitter -->
+      <a
+        class="btn text-white btn-floating m-1"
+        style="background-color: #55acee;"
+        href="https://twitter.com/aqarmapeg"
+        role="button"
+        ><i class="fab fa-twitter"></i
+      ></a>
+
+      <!-- Google -->
+      <a
+        class="btn text-white btn-floating m-1"
+        style="background-color: #dd4b39;"
+        href="https://aqarmap.com.eg/ar/"
+        role="button"
+        ><i class="fab fa-google"></i
+      ></a>
+
+      <!-- Instagram -->
+      <a
+        class="btn text-white btn-floating m-1"
+        style="background-color: #ac2bac;"
+        href="https://www.instagram.com/aqarmap/"
+        role="button"
+        ><i class="fab fa-instagram"></i
+      ></a>
+
+      <!-- Linkedin -->
+      <a
+        class="btn text-white btn-floating m-1"
+        style="background-color: #0082ca;"
+        href="https://www.linkedin.com/"
+        role="button"
+        ><i class="fab fa-linkedin-in"></i
+      ></a>
+      <!-- Github -->
+      <a
+        class="btn text-white btn-floating m-1"
+        style="background-color: #333333;"
+        href="https://github.com/"
+        role="button"
+        ><i class="fab fa-github"></i
+      ></a>
+    </section>
+    <!-- Section: Social media -->
+  </div>
+  <!-- Grid container -->
+
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color:rgba(243, 10, 10, 0.403)">
+    © copy 2023 Real Estate Website. All Rights Reserved.
+   
+  </div>
+  <!-- Copyright -->
+</footer>
+
+  <script src="Home.js"></script>
+  
+
+</body>
+
+</html>

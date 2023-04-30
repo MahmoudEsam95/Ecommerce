@@ -1,0 +1,256 @@
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  background-color:rgba(243, 10, 10, 0.403);
+  color: #fff;
+  /* position: fixed; */
+  top: 0;
+  width: 100%;
+  z-index: 999;
+}
+
+.logo {
+  width: 50px;
+}
+
+.nav-links {
+  display: flex;
+  justify-content: space-around;
+  width: 50%;
+  height: 100%;
+  list-style: none;
+  text-align: center;
+}
+
+.nav-links li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.container {
+  margin-top: 50px;
+}
+
+  
+
+
+.detail-box {
+  display: grid;
+  row-gap: 0.5rem;
+}
+
+.cart-product-title {
+  font-size: 1.5rem;
+  text-transform: uppercase;
+}
+
+.cart-price {
+  font-weight: 500;
+}
+
+.cart-quantity {
+  border: 1px solid rgb(40, 39, 39);
+  outline: orange 1px;
+  width: 2.4rem;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.cart-remove {
+  font-size: 24px;
+  color: orangered;
+  cursor: pointer;
+}
+
+.total {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1.5rem;
+  border-top: 1px solid rgb(40, 39, 39);
+}
+
+.total-title {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.total-price {
+  margin-left: 0.5rem;
+}
+
+.btn-buy {
+  display: flex;
+  margin: 1.5rem auto 0 auto;
+  padding: 12px 20px;
+  border: none;
+  background-color: #0d6efd;
+  color: rgb(246, 241, 231);
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.btn-buy:hover {
+  background-color: rgb(40, 39, 39);
+}
+
+#close-cart {
+  position: absolute;
+  top: 1rem;
+  right: 0.8rem;
+  font-size: 2rem;
+  color: rgb(40, 39, 39);
+  cursor: pointer;
+}
+
+#close-cart:hover {
+  color: orangered;
+}
+/* --------------------------------------------------------------------- */
+
+#wish-icon {
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+
+.wish {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 360px;
+  min-height: 100vh;
+  padding: 20px;
+  background-color: rgb(246, 241, 231);
+  box-shadow: -2px 0 4px hsl(0 4% 15% / 10%);
+  transition: 0.3s;
+}
+
+.wish.active {
+  right: 0;
+}
+
+.wish-title {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-top: 2rem;
+}
+
+.wish-box {
+  display: grid;
+  grid-template-columns: 32% 50% 18%;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.wish-image {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  padding: 10px;
+}
+
+
+
+.btn-buy {
+  display: flex;
+  margin: 1.5rem auto 0 auto;
+  padding: 12px 20px;
+  border: none;
+  background-color: #0d6efd;
+  color: rgb(246, 241, 231);
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.btn-buy:hover {
+  background-color: rgb(40, 39, 39);
+}
+
+#close-wish {
+  position: absolute;
+  top: 1rem;
+  right: 0.8rem;
+  font-size: 2rem;
+  color: rgb(40, 39, 39);
+  cursor: pointer;
+}
+
+#close-wish:hover {
+  color: orangered;
+}
+
+/* add product */
+
+
+.form-wrapper {
+  display: none;
+}
+
+.form-wrapper.active {
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 100;
+}
+
+.gameform {
+  background-color: #150a18;
+  width: 900px;
+  padding: 20px 50px;
+  border-radius: 5px;
+}
+
+.form-control {
+  width: 90%;
+}
+
+.group {
+  display: flex;
+  margin: 15px 0px;
+}
+
+.group label {
+  width: 150px;
+  line-height: 40px;
+  height: 40px;
+}
+
+.action {
+  display: flex;
+  justify-content: center;
+  gap: 100px;
+  margin: 20px;
+}
+
+
+.wrapper {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: linear-gradient(90deg, #150a18, #FE53BB 90%);
+}

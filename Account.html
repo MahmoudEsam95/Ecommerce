@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shelter</title>
+    <link rel="stylesheet" href="Account.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="navbar">
+        <div class="logo"></div>
+
+        <nav>
+          <ul id="MenuItems">
+            <l1><a href="http://127.0.0.1:5501/Home.html">Home</a> </l1>
+            
+            <l1><a href="http://127.0.0.1:5501/about.html">About</a> </l1>
+            <l1><a href="http://127.0.0.1:5501/contact.html">Contact</a> </l1>
+            
+          </ul>
+        </nav>
+      </div>
+    </div>
+    <!---Account page-->
+    <div class="account-page">
+      <div class="container">
+        <div class="row">
+          <div class="col-2"></div>
+          <div class="col-2">
+            <div class="form-container">
+              <div class="form-btn">
+                <span onclick="login()">Login</span>
+                <span onclick="register()">Register</span>
+                <hr id="Indicator" />
+              </div>
+              <form id="LoginForm">
+                <input type="text" placeholder="User Name"/>
+                <input type="password" placeholder="Password"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}"/>
+                <button class="btn" onclick="window.open('http://127.0.0.1:5501/Home.html','_blank')"  >Login</button>
+                <a href=""><h3>Forgotten Password ?</h3> </a>
+              </form>
+
+              <form id="RegForm">
+                <input type="text" placeholder="User Name"/>
+                <input type="email" placeholder="Email"  />
+                <input type="password" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}" />
+                <button class="btn" onclick="window.open('http://127.0.0.1:5501/Home.html', '_blank')" >Register</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="fowus">
+     <br><br><br><br>
+    <footer>
+      <p class="Foot">© 2023 Real Estate Website. All Rights Reserved.</p>
+    </footer>
+    <!-----footer--
+<section class="hero">
+  <div class="hero-image">
+    
+  </div>
+  <div class="hero-content">
+    <h1>Find Your Dream Home Today</h1>
+    <form class="search-bar" action="#">
+      <input type="text" placeholder="Location">
+      <input type="text" placeholder="Price">
+      <input type="text" placeholder="Size">
+      <button type="submit">Search</button>
+    </form>
+    
+  </div>
+</section>
+<div class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="footer-col-1">
+                <h3>Download Our App</h3>
+                <p>Download App For Android And Ios Mobile Phone</p>
+                
+            </div>
+            <div class="footer-col-2">
+                
+            </div>
+            <div class="footer-col-4">
+                <h3>Follow Us</h3>
+                <ul>
+                    <li>Facebook</li>
+                    <li>Twitter</li>
+                    <li>Instagram</li>
+                    <li>You Tube</li>
+                </ul>
+                
+            </div>
+        </div>
+        <hr>
+        <p class="copyright">Copyright 2023 </p>
+    </div>
+</div>
+----->
+
+    <script>
+      var LoginForm = document.getElementById("LoginForm");
+      var RegForm = document.getElementById("RegForm");
+      var Indicator = document.getElementById("Indicator");
+
+      function register() {
+        RegForm.style.transform = "translateX(0px)";
+        LoginForm.style.transform = "translateX(0px)";
+        Indicator.style.transform = "translateX(100px)";
+      }
+      function login() {
+        RegForm.style.transform = "translateX(300px)";
+        LoginForm.style.transform = "translateX(300px)";
+        Indicator.style.transform = "translateX(0px)";
+      }
+    </script>
+    <script src="Account.js"></script>
+  </body>
+</html>
